@@ -1,0 +1,85 @@
+
+
+52 cards will be held in an array of objects
+
+cardDeck =
+    {
+    suit:
+    value:
+    img-class:
+}
+
+OR ??
+
+cardDeck = []
+values = ["2","3","4" etc]
+suits = ["Spades" etc]
+
+playerDeck - will be an array of 26 cards from cardDeck
+computerDeck - will be an array of remaining 26 cards from cardDeck
+cardsInPlay - an array of cards that are in play (to be won)
+playerCard - current players card in play
+computerCard - current computers card in play
+playersTurn - playersTurn === true
+computersTurn - computersTurn === true
+
+Deck is shuffled and 26 Cards are dealt to players (player and computer)
+    -need a function to shuffle cards
+
+The top card is drawn from either players deck and displayed on screen.
+    -using the pop method on either deck array?
+
+
+while computers card equals players card value
+  display message "It's War!"
+
+
+
+if player's card value > computer's card value 
+	display message "Player Wins!"
+	put cards in play to the bottom of the player's deck
+        -using playerDeck.unshift(cardsInPlay)
+	clear cardsInPlay
+else 
+	display message  "Computer Wins!"
+	put cards in play to the bottom of the computer's deck
+        -using computerDeck.unshift(cardsInPlay)
+	clear cardsInPlay
+end of if statement
+
+if player's deck or computer's deck is equal to 0 then
+	if player's deck is equal to 0 then
+		display message "Computer is the game champion!"
+		return
+	else 
+		outuput "Player is the game champion!"
+		return
+else 
+	Players draw top card from their deck
+        computerDeck.pop()
+        playerDeck.pop()
+
+
+RULES: 
+
+The goal is to be the first player to win all 52 cards
+
+THE DEAL
+The deck is divided evenly, with each player receiving 26 cards, dealt one at a time, 
+face down. Anyone may deal first. Each player places their stack of cards face down, 
+in front of them.
+
+THE PLAY
+Each player turns up a card at the same time and the player with the higher card 
+takes both cards and puts them, face down, on the bottom of his stack.
+
+If the cards are the same rank, it is War. Each player turns up one card face down 
+and one card face up. The player with the higher cards takes both piles (six cards). 
+If the turned-up cards are again the same rank, each player places another card face 
+down and turns another card face up. The player with the higher card takes all 10 cards, 
+and so on.
+
+The cards have the normal rank from highest to lowest: ace, king, queen, jack, and then 10 through 2.
+
+HOW TO KEEP SCORE
+The game ends when one player has won all the cards.

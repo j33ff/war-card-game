@@ -5,7 +5,7 @@
 cardDeck =
     {
     suit:
-    value:
+    value: 
     img-class:
 }
 

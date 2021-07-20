@@ -32,7 +32,12 @@ const computerCardCount = document.querySelector(".computer-count span");
 // index 0 is computers selection and 1 is players card
 const currentPlayerCards = ["",""];
 
+// the initial full deck of 52 cards
 const globalDeck = [];
+
+// the shuffled deck of 52 cards
+
+const shuffledDeck = [];
 
 // stores each card that is currently in play
 const cardsInplay = [];
@@ -48,6 +53,7 @@ let gameStatusMessage = "";
 /*----- cached element references -----*/
 
 
+
 /*----- event listeners -----*/
 
 dealCardsBtn.addEventListener("click", function(e){
@@ -57,6 +63,7 @@ dealCardsBtn.addEventListener("click", function(e){
 
 /*----- functions -----*/
 
+// build the initial card deck using Card class constructor
 const buildDeck = function(){
     suits.forEach(function(suit){
         values.forEach(function(value){
@@ -65,19 +72,24 @@ const buildDeck = function(){
         })
     }) 
 }
+
+// function to shiffle cards
    
-
-
-const shuffleCards = function(){
-    // function to shuffle cards
+function shuffleCards(arr){
+    shuffledDeck.splice(0, shuffledDeck.length);
+    let newDeck = arr.sort((a, b) => 0.5 - Math.random());
+    shuffledDeck.push(...newDeck);
 }
 
+// Deal 26 shuffled cards each to player and computer 
+
 const dealCards = function(){
-    for(let i = 0; i < globalDeck.length; i++){
-        if(globalDeck.length < 27){
-            computerDeck.push(globalDeck[i]);
+    for(let i = 0; i < shuffledDeck.length; i++){
+        if (i < 26){
+            computerDeck.push(shuffledDeck[i]);
+            
         } else {
-            playerDeck.push(globalDeck[i]);
+            playerDeck.push(shuffledDeck[i]);  
         }
     }
 }
@@ -90,16 +102,17 @@ const compareCards = function(playerCardObject, computerCardObject){
 
     if (playerCardRank === computerCardRank) {
         gameStatus.textContent = "It's war!";
-
+        // add 3 cards to the deck
     }
 
 }
 
-console.log(computerDeck);
-console.log(playerDeck);
 
 const init = function(){
     buildDeck();
+    shuffleCards(globalDeck);
     dealCards();
 
 }
+
+init();

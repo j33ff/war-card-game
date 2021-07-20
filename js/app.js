@@ -63,19 +63,18 @@ const buildDeck = function(){
             let card = new Card(value, suit);
             globalDeck.push(card);
         })
-    })
-        console.log(globalDeck);
-    }
-    buildDeck();
+    }) 
+}
+   
 
 
 const shuffleCards = function(){
-
+    // function to shuffle cards
 }
 
 const dealCards = function(){
     for(let i = 0; i < globalDeck.length; i++){
-        if(globalDeck.length > 25){
+        if(globalDeck.length < 27){
             computerDeck.push(globalDeck[i]);
         } else {
             playerDeck.push(globalDeck[i]);
@@ -83,10 +82,24 @@ const dealCards = function(){
     }
 }
 
-dealCards();
+const compareCards = function(playerCardObject, computerCardObject){
+    // find the values and rank them based on which has a higher index value
+    // from values array
+    let playerCardRank = values.findIndex(playerCardObject.value);
+    let computerCardRank = values.findIndex(computerCardObject.value);
+
+    if (playerCardRank === computerCardRank) {
+        gameStatus.textContent = "It's war!";
+
+    }
+
+}
+
 console.log(computerDeck);
 console.log(playerDeck);
 
 const init = function(){
+    buildDeck();
+    dealCards();
 
 }

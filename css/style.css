@@ -26,6 +26,7 @@ div {
     width: 30%;
     height: 400px;
     background-color:red;
+    background-size: contain;
 }
 
 .player-card {
@@ -33,6 +34,7 @@ div {
     width: 30%;
     height: 400px;
     background-color: rgba(45, 149, 240, 0.541);
+    background-size: contain;
 }
 
 .deal-cards-btn {

@@ -4,7 +4,7 @@ class Card {
     constructor(value, suit) {
       this.value = value;
       this.suit = suit;
-      this.imgClass = "card " + this.suit + " " + this.value;
+    //   this.imgClass = ["card",this.suit,this.value];
     }
   }
 
@@ -57,8 +57,12 @@ let gameStatusMessage = "";
 /*----- event listeners -----*/
 
 dealCardsBtn.addEventListener("click", function(e){
-    currentPlayerCardDiv.classList.add('.card.diamonds.A');
-    console.log(e);
+    currentPlayerCardDiv.classList.add("card",playerDeck[playerDeck.length-1].value,playerDeck[playerDeck.length-1].suit);
+    let currentPlayerCard = playerDeck.pop();
+    currentComputerCardDiv.classList.add("card",computerDeck[computerDeck.length-1].value,playerDeck[playerDeck.length-1].suit);
+    let currentComputerCard = computerDeck.pop();
+    cardsInplay.push(currentComputerCard, currentPlayerCard);
+    compareCards(currentPlayerCard, currentComputerCard);
 })
 
 /*----- functions -----*/
@@ -73,7 +77,7 @@ const buildDeck = function(){
     }) 
 }
 
-// function to shiffle cards
+// function to shuffle cards
    
 function shuffleCards(arr){
     shuffledDeck.splice(0, shuffledDeck.length);
@@ -86,12 +90,22 @@ function shuffleCards(arr){
 const dealCards = function(){
     for(let i = 0; i < shuffledDeck.length; i++){
         if (i < 26){
-            computerDeck.push(shuffledDeck[i]);
-            
+            computerDeck.push(shuffledDeck[i]);   
         } else {
             playerDeck.push(shuffledDeck[i]);  
         }
     }
+}
+
+function tied(){
+    // wait 2 seconds setTimeout asynchronous
+    let playDownCard = playerDeck.pop();
+    let playUpCard = playerDeck.pop();
+    currentPlayerCardDiv.classList.add("card",playUpCard.value,playUpCard.suit);
+    let compDownCard = computerDeck.pop();
+    let compUpCard = computerDeck.pop();
+    currentComputerCardDiv.classList.add("card",compUpCard.value,compUpCard.suit);
+    cardsInplay.push(playDownCard,playUpCard,compDownCard,compUpCard);
 }
 
 const compareCards = function(playerCardObject, computerCardObject){
@@ -101,10 +115,30 @@ const compareCards = function(playerCardObject, computerCardObject){
     let computerCardRank = values.findIndex(computerCardObject.value);
 
     if (playerCardRank === computerCardRank) {
-        gameStatus.textContent = "It's war!";
-        // add 3 cards to the deck
-    }
+        gameStatus.textContent = "It's War!";
+        tied();
+        // each player puts one card facedown and another face up (4 new cards)  
+    } else if (playerDeck.length === 0){
+        gameStatus.textContent = "Computer is the game champion!";
+    } else if (computerDeck.length === 0){
+        gameStatus.textContent = "Player is the game champion!";
+    } else if (playerCardRank > computerCardRank){
+        gameStatus.textContent = "Player wins this round!";
+        playerDeck.unshift(...cardsInplay);
+    } else { 
+        gameStatus.textContent = "Computer wins this round!";
+        computerDeck.unshift(...cardsInplay);
+    }      
 
+}
+
+function render(){
+
+    if(playerDeck.length === 0 && computerDeck.length === 0){
+
+
+
+    }
 }
 
 
@@ -112,7 +146,6 @@ const init = function(){
     buildDeck();
     shuffleCards(globalDeck);
     dealCards();
-
 }
 
 init();

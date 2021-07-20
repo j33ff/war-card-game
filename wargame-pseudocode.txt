@@ -33,7 +33,11 @@ The top card is drawn from either players deck and displayed on screen.
 while computers card equals players card value
   display message "It's War!"
 
-
+If the cards are the same rank, it is War. Each player turns up one card 
+face down and one card face up. The player with the higher cards takes both 
+piles (six cards). If the turned-up cards are again the same rank, each 
+player places another card face down and turns another card face up. The player 
+with the higher card takes all 10 cards, and so on.
 
 if player's card value > computer's card value 
 	display message "Player Wins!"

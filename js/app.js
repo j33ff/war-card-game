@@ -123,7 +123,8 @@ function tied(){
 
     currentCardClasses.splice(0, currentCardClasses.length);
     
-    // was adding a class here that wasn't being taken away so added splice above and updated card classes below
+    // was removing a class here from div that wasn't being updated as removed from currentCardClasses 
+    // so added splice above and updated current card classes below
     
     let compDownCard = computerDeck.pop();
     let compUpCard = computerDeck.pop();

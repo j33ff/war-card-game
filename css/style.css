@@ -1,64 +1,72 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    flex-direction: column;
     display: flex;
     width: 100%;
 }
 
+
+
 header {
     height: 15vh;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
 }
 
 .container-wrapper {
     display: flex;
-    flex-direction: column;
-    width: 100vw; 
-}
-
-.cards-in-play {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     width: 100vw;
+    justify-content: space-around; 
 }
 
+.computer-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 .computer-card {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 20vw;
     height: 30vw;
     background-color:red;
     background-size: contain;
 }
 
-.player-card {
+.player-card-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-self: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-card {
+    display: flex;
     width: 20vw;
     height: 30vw;
     background-color: rgba(45, 149, 240, 0.541);
     background-size: contain;
 }
 
-.card-titles {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100vw;
-}
 
 .computer-title {
     display: flex;
-    width: 30%;
+    width: 20vh;
+    align-items: center;
 }
 
 .player-title {
-    display:flex;
-    width: 30%;
+    display: flex;
+    width: 20vh;
+    align-items: center;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .deal-cards-btn {
@@ -67,7 +75,6 @@ header {
     color: purple;
     border: 4px solid purple;
     width: 30%;
-    margin-top: 20px;
-    
+    height: 10vh;
+    margin-top: 20px;  
 }
-    

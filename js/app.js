@@ -59,21 +59,22 @@ const playerDeck = [];
 dealCardsBtn.addEventListener("click", function(e){
     
     //remove previous classLists from computer card div
-    currentComputerCardDiv.classList.remove(currentCardClasses[0],currentCardClasses[1]);
+    currentComputerCardDiv.classList.remove(currentCardClasses[0],currentCardClasses[1],currentCardClasses[2]);
     //remove previous classLists from player card div
-    currentPlayerCardDiv.classList.remove(currentCardClasses[2], currentCardClasses[3]);
+    currentPlayerCardDiv.classList.remove("card",currentCardClasses[3], currentCardClasses[4],currentCardClasses[5]);
     
     // clear current card classes array for adding new classes
     currentCardClasses.splice(0,currentCardClasses.length);
 
     //add new classlist
     currentComputerCardDiv.classList.add("card",computerDeck[computerDeck.length-1].value,computerDeck[computerDeck.length-1].suit);
-    currentCardClasses.push(computerDeck[computerDeck.length-1].value, computerDeck[computerDeck.length-1].suit);
+    currentCardClasses.push("card",computerDeck[computerDeck.length-1].value, computerDeck[computerDeck.length-1].suit);
     let currentComputerCard = computerDeck.pop();
     
     currentPlayerCardDiv.classList.add("card",playerDeck[playerDeck.length-1].value,playerDeck[playerDeck.length-1].suit);
-    currentCardClasses.push(playerDeck[playerDeck.length-1].value, playerDeck[playerDeck.length-1].suit);
+    currentCardClasses.push("card",playerDeck[playerDeck.length-1].value, playerDeck[playerDeck.length-1].suit);
     let currentPlayerCard = playerDeck.pop();
+    console.log("this is current card classes, ", currentCardClasses)
     
     cardsInPlay.push(currentComputerCard, currentPlayerCard);
     compareCards(currentPlayerCard, currentComputerCard);
@@ -115,13 +116,17 @@ const dealCards = function(){
 
 function tied(){
     console.log("Called the tied function!");
+    // remove previous classes 
+    currentComputerCardDiv.classList.remove("card",currentCardClasses[0],currentCardClasses[1]);
+    currentPlayerCardDiv.classList.remove("card",currentCardClasses[2], currentCardClasses[3]);
+    // deal one face down and one face up card each for player and computer
     let playDownCard = playerDeck.pop();
     let playUpCard = playerDeck.pop();
     currentPlayerCardDiv.classList.add("card",playUpCard.value,playUpCard.suit);
     let compDownCard = computerDeck.pop();
     let compUpCard = computerDeck.pop();
     currentComputerCardDiv.classList.add("card",compUpCard.value,compUpCard.suit);
-    cardsInPlay.push(playDownCard,playUpCard,compDownCard,compUpCard);
+    cardsInPlay.push(compUpCard,playUpCard,compDownCard,playDownCard);
     console.log("This is the computer cards ", compDownCard,compUpCard);
     console.log("This is the player cards ",  playUpCard,playDownCard);
     compareCards(playUpCard, compUpCard);
@@ -137,11 +142,12 @@ function compareCards(playerCardObject, computerCardObject){
 
     if (playerCardRank === computerCardRank) {
         gameStatus.textContent = "It's War!";
-        tied();
-        // setTimeout(function(){
-        //     gameStatus.textContent = "Drawing 2 new cards..."; 
-        //     setTimeout(tied, 2000);
-        //     }, 2000);
+
+        // display that 4 new cards are being brought into play with a 2 second delay so user can see
+        setTimeout(function(){
+            gameStatus.textContent = "Drawing 4 new cards..."; 
+            setTimeout(tied, 2000);
+            }, 2000);
         
         // each player puts one card facedown and another face up (4 new cards)  
     } else if (playerDeck.length === 0){

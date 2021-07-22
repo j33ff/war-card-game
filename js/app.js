@@ -48,8 +48,6 @@ const computerDeck = [];
 // cards that the player has been dealt
 const playerDeck = [];
 
-
-
 /*----- cached element references -----*/
 
 

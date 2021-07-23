@@ -19,9 +19,9 @@ const currentComputerCardDiv = document.querySelector(".computer-card");
 
 const currentPlayerCardDiv = document.querySelector(".player-card");
 
-const playerCardCount = document.querySelector(".player-count span");
+const playerCardCount = document.querySelector(".player-title");
 
-const computerCardCount = document.querySelector(".computer-count span");
+const computerCardCount = document.querySelector(".computer-title");
 
 
 
@@ -75,13 +75,13 @@ dealCardsBtn.addEventListener("click", function(e){
     cardsInPlay.push(currentComputerCard, currentPlayerCard);
     compareCards(currentPlayerCard, currentComputerCard);
     
-   
+    cardCounts();
 })
 
 /*----- functions -----*/
 
 // build the initial card deck using Card class constructor
-const buildDeck = function(){
+function buildDeck(){
     suits.forEach(function(suit){
         values.forEach(function(value){
             let card = new Card(value, suit);
@@ -115,7 +115,6 @@ function tied(){
     // remove previous classes 
     currentComputerCardDiv.classList.remove(currentCardClasses[0],currentCardClasses[1],currentCardClasses[2]);
     currentPlayerCardDiv.classList.remove(currentCardClasses[3],currentCardClasses[4], currentCardClasses[5]);
-   
 
     currentCardClasses.splice(0, currentCardClasses.length);
     
@@ -169,15 +168,24 @@ function compareCards(playerCardObject, computerCardObject){
         computerDeck.unshift(...cardsInPlay);
         cardsInPlay.splice(0, cardsInPlay.length);
     } 
+    cardCounts();
+}
+
+function cardCounts(){
+    playerCardCount.textContent = "Player card total: " + playerDeck.length;
+    computerCardCount.textContent = "Computer card total: " + computerDeck.length;
 
 }
 
 /*----- initialize the card deck -----*/
 
+
+
 const init = function(){
     buildDeck();
     shuffleCards(globalDeck);
     dealCards();
+    cardCounts();
 }
 
 init();

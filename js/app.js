@@ -57,6 +57,9 @@ const playerDeck = [];
 
 dealCardsBtn.addEventListener("click", function(e){
     
+
+    currentComputerCardDiv.classList.remove("card", "back");
+    currentPlayerCardDiv.classList.remove("card", "back");
     //remove previous classLists from computer card div
     currentComputerCardDiv.classList.remove(currentCardClasses[0],currentCardClasses[1],currentCardClasses[2]);
     //remove previous classLists from player card div

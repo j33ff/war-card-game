@@ -27,8 +27,8 @@ The game ends when one player has won all the cards.
 
 ## SCREENSHOTS
 
-![Game Start](../images/screenshots/game-start.png)
-![Game Play](../images/screenshots/game-play.png)
+![Game Start](./images/screenshots/game-start.png)
+![Game Play](./images/screenshots/game-play.png)
 
 ## TECHNOLOGIES USED
 

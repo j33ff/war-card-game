@@ -32,7 +32,7 @@ The game ends when one player has won all the cards.
 
 ## TECHNOLOGIES USED
 
-### The technologies used for this project were HTML, JavaScript, and CSS.
+### The technologies used for this project were:
 
 - HTML
 - JavaScript
@@ -51,8 +51,8 @@ To start the game play, click the "Deal Cards" button. To reset the board, deal 
 ### What features would I like to implement:
 
 
-- [ ] I would like to implement animations for cards flipping
-- [ ] I would like to implement a login so users can keep track of their wins
+- [ ] implement animations for cards flipping
+- [ ] implement a login so users can keep track of their wins
 
 
 :+1:

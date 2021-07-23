@@ -42,7 +42,7 @@ The game ends when one player has won all the cards.
 
 [War Card Game on GitHub Pages](https://j33ff.github.io/war-card-game/)
 
-To start the game play, click the "Deal Cards" button. To reset the board and start the game again, click the "Reset Game" button. 
+To start the game play, click the "Deal Cards" button. To reset the board, deal a fresh deck of shuffled cards, and start the game again, click the "Reset Game" button. 
 
 **When two cards are tied, wait for the 4 new cards to be drawn. The game status will change to, "Drawing 4 new cards..."**
 
@@ -52,6 +52,7 @@ To start the game play, click the "Deal Cards" button. To reset the board and st
 
 
 - [ ] I would like to implement animations for cards flipping
+- [ ] I would like to implement a login so users can keep track of their wins
 
 
 :+1:

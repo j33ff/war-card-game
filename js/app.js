@@ -29,7 +29,6 @@ const computerCardCount = document.querySelector(".computer-title");
 
 /*----- app's state (variables) -----*/
 
-
 // index 0,1,2 is computers current classes and 3,4,5 is players card current classes
 const currentCardClasses = [];
 

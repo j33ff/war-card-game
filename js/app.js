@@ -49,10 +49,6 @@ const computerDeck = [];
 // cards that the player has been dealt
 const playerDeck = [];
 
-/*----- cached element references -----*/
-
-
-
 /*----- event listeners -----*/
 
 dealCardsBtn.addEventListener("click", function(e){
@@ -153,7 +149,7 @@ function tied(){
 }
 
 function compareCards(playerCardObject, computerCardObject){
-    console.dir(cardsInPlay);
+
     // find the values and rank them based on which has a higher index value
     // from values array
     let playerCardRank = values.findIndex(value => value === playerCardObject.value);

@@ -27,23 +27,32 @@ The game ends when one player has won all the cards.
 
 ## SCREENSHOTS
 
+![Game Start](../images/screenshots/game-start.png)
+![Game Play](../images/screenshots/game-play.png)
+
 ## TECHNOLOGIES USED
 
-```
-The technologies used for this project were HTML, JavaScript, and CSS.
-```
+### The technologies used for this project were HTML, JavaScript, and CSS.
+
+- HTML
+- JavaScript
+- CSS
 
 ## GETTING STARTED
 
-link to gh pages
+[War Card Game on GitHub Pages](https://j33ff.github.io/war-card-game/)
+
+To start the game play, click the "Deal Cards" button. To reset the board and start the game again, click the "Reset Game" button. 
+
+**When two cards are tied, wait for the 4 new cards to be drawn. The game status will change to, "Drawing 4 new cards..."**
 
 ## NEXT STEPS
 
-What features would I like to implement
-
-```
-I would like to implement animations for the cards flipping
-```
+### What features would I like to implement:
 
 
+- [ ] I would like to implement animations for cards flipping
+
+
+:+1:
 

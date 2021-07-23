@@ -1,4 +1,5 @@
 body {
+    
     font-family: Arial, Helvetica, sans-serif;
     flex-direction: column;
     display: flex;
@@ -11,7 +12,8 @@ html {
   }
 
 h1  {
-    font-size: 2rem;
+    font-family: 'Bungee', cursive;
+    font-size: 1.5rem;
     color: white;
 }
 
@@ -20,6 +22,12 @@ header {
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.game-status {
+    font-family: 'Bungee', cursive;
+    color:#c2b280;
+    font-size: 2.2rem;
 }
 
 .container-wrapper {
@@ -38,7 +46,7 @@ header {
     display: flex;
     width: 20vw;
     height: 30vw;
-    background-color:red;
+    background-color:#c2b280;
     background-size: contain;
 }
 
@@ -53,36 +61,47 @@ header {
     display: flex;
     width: 20vw;
     height: 30vw;
-    background-color: rgba(45, 149, 240, 0.541);
+    background-color: #c2b280;
     background-size: contain;
 }
 
 
 .computer-title {
     display: flex;
-    width: 20vh;
+    width: 18vw;
     align-items: center;
 }
 
 .player-title {
     display: flex;
-    width: 20vh;
+    width: 18vh;
     align-items: center;
 }
 
 .button-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .deal-cards-btn {
     background-color: purple;
+    font-size: 1.2rem;
     align-self:center;
-    color: white;
-    border: 4px solid purple;
-    width: 30%;
+    color: #c2b280;
+    border: 4px solid white;
+    width: 20%;
     height: 10vh;
-    margin-top: 20px;  
+    margin-top: 5px;  
+}
+
+.reset-button {
+    background-color: #B22222;
+    height: 10vh;
+    color: #c2b280;
+    margin-top: 5px;
+    width: 20%; 
+    border: 4px solid white;
+    font-size: 1.2rem;   
 }

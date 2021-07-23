@@ -15,6 +15,8 @@ const gameStatus = document.querySelector(".game-status");
 
 const dealCardsBtn = document.querySelector(".deal-cards-btn");
 
+const resetBtn = document.querySelector(".reset-button");
+
 const currentComputerCardDiv = document.querySelector(".computer-card");
 
 const currentPlayerCardDiv = document.querySelector(".player-card");
@@ -76,6 +78,19 @@ dealCardsBtn.addEventListener("click", function(e){
     compareCards(currentPlayerCard, currentComputerCard);
     
     cardCounts();
+})
+
+resetBtn.addEventListener("click", function(){
+    currentComputerCardDiv.classList.remove(currentCardClasses[0],currentCardClasses[1],currentCardClasses[2]);
+    currentPlayerCardDiv.classList.remove(currentCardClasses[3], currentCardClasses[4],currentCardClasses[5]);
+    currentCardClasses.splice(0,currentCardClasses.length);
+    playerDeck.splice(0, playerDeck.length);
+    shuffledDeck.splice(0, shuffledDeck.length);
+    globalDeck.splice(0,globalDeck.length);
+    computerDeck.splice(0,computerDeck.length);
+    cardsInPlay.splice(0, cardsInPlay.length);
+    init();
+
 })
 
 /*----- functions -----*/
@@ -146,9 +161,8 @@ function compareCards(playerCardObject, computerCardObject){
 
         // display that 4 new cards are being brought into play with a 2 second delay so user can see
         setTimeout(function(){
-            gameStatus.textContent = "Drawing 4 new cards..."; 
+            gameStatus.textContent = "Drawing 4 new cards...";
             setTimeout(tied, 2000);
-            
             }, 2000);
          
     } else if (playerDeck.length === 0){
@@ -174,18 +188,18 @@ function compareCards(playerCardObject, computerCardObject){
 function cardCounts(){
     playerCardCount.textContent = "Player card total: " + playerDeck.length;
     computerCardCount.textContent = "Computer card total: " + computerDeck.length;
-
 }
 
 /*----- initialize the card deck -----*/
-
-
 
 const init = function(){
     buildDeck();
     shuffleCards(globalDeck);
     dealCards();
     cardCounts();
+    currentComputerCardDiv.classList.add("card","back");
+    currentPlayerCardDiv.classList.add("card","back");
+    gameStatus.textContent = "War: Ready to Play?";
 }
 
 init();

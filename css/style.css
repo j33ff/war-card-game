@@ -5,7 +5,15 @@ body {
     width: 100%;
 }
 
+html {
+    background-image: url(../images/background/velvet.jpeg);
+    background-repeat: repeat-x; 
+  }
 
+h1  {
+    font-size: 1.3rem;
+    color: white;
+}
 
 header {
     height: 15vh;

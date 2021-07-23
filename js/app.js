@@ -4,7 +4,6 @@ class Card {
     constructor(value, suit) {
       this.value = value;
       this.suit = suit;
-    //   this.imgClass = ["card",this.suit,this.value];
     }
   }
 
@@ -29,7 +28,7 @@ const computerCardCount = document.querySelector(".computer-count span");
 /*----- app's state (variables) -----*/
 
 
-// index 0,1 is computers selection and 1,2 is players card
+// index 0,1,2 is computers current classes and 3,4,5 is players card current classes
 const currentCardClasses = [];
 
 // the initial full deck of 52 cards
@@ -72,7 +71,6 @@ dealCardsBtn.addEventListener("click", function(e){
     currentPlayerCardDiv.classList.add("card",playerDeck[playerDeck.length-1].value,playerDeck[playerDeck.length-1].suit);
     currentCardClasses.push("card",playerDeck[playerDeck.length-1].value, playerDeck[playerDeck.length-1].suit);
     let currentPlayerCard = playerDeck.pop();
-    console.log("this is current card classes after click, ", currentCardClasses)
     
     cardsInPlay.push(currentComputerCard, currentPlayerCard);
     compareCards(currentPlayerCard, currentComputerCard);
@@ -113,17 +111,15 @@ const dealCards = function(){
 }
 
 function tied(){
-    console.log("Called the tied function!");
+
     // remove previous classes 
     currentComputerCardDiv.classList.remove(currentCardClasses[0],currentCardClasses[1],currentCardClasses[2]);
     currentPlayerCardDiv.classList.remove(currentCardClasses[3],currentCardClasses[4], currentCardClasses[5]);
-    // deal one face down and one face up card each for player and computer
+   
 
     currentCardClasses.splice(0, currentCardClasses.length);
     
-    // was removing a class here from div that wasn't being updated as removed from currentCardClasses 
-    // so added splice above and updated current card classes below
-    
+    // deal one face down and one face up card each for player and computer
     let compDownCard = computerDeck.pop();
     let compUpCard = computerDeck.pop();
     currentComputerCardDiv.classList.add("card",compUpCard.value,compUpCard.suit);
@@ -155,8 +151,7 @@ function compareCards(playerCardObject, computerCardObject){
             setTimeout(tied, 2000);
             
             }, 2000);
-        
-        // each player puts one card facedown and another face up (4 new cards)  
+         
     } else if (playerDeck.length === 0){
         gameStatus.textContent = "Computer is the game champion!";
         computerDeck.unshift(...cardsInPlay);
@@ -174,19 +169,10 @@ function compareCards(playerCardObject, computerCardObject){
         computerDeck.unshift(...cardsInPlay);
         cardsInPlay.splice(0, cardsInPlay.length);
     } 
-    console.log("This is player deck ", playerDeck);
-    console.log("This is computer deck ", computerDeck);
-    console.log("This is cards in play ", cardsInPlay);
 
 }
 
-// function render(){
-
-//     if(playerDeck.length === 0 && computerDeck.length === 0){
-
-//     }
-// }
-
+/*----- initialize the card deck -----*/
 
 const init = function(){
     buildDeck();
